@@ -61,11 +61,13 @@ for (let y = 0; y < height; ++y) {
 			i: 0,
 		};
 
-		for (let i = 0; cLengthSquared(z) < 2 * 2 && i < 100; ++i) {
+		const maxIterations = 100;
+		let i = 0;
+		for (; cLengthSquared(z) < 2 * 2 && i < maxIterations; ++i) {
 			z = cAdd(cMul(z, z), c);
 		}
 
-		const a = Math.min(1, cLength(z) / 4);
+		const a = i / maxIterations;
 
 		const color = {
 			r: a,
