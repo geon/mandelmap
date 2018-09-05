@@ -29,8 +29,9 @@ const context = (document.getElementsByTagName(
 	"canvas",
 )[0] as HTMLCanvasElement).getContext("2d")!;
 
-function drawPixel(x, y, color: Color) {
-	context.fillStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+function drawPixel(x: number, y: number, color: Color) {
+	context.fillStyle =
+		"rgb(" + color.r * 255 + "," + color.g * 255 + "," + color.b * 255 + ")";
 	context.fillRect(x, y, 1, 1);
 }
 
