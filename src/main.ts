@@ -45,11 +45,15 @@ function drawPixel(x: number, y: number, color: Color) {
 
 const width = context.canvas.width;
 const height = context.canvas.height;
+const minX = -1;
+const maxX = 1;
+const minY = -1;
+const maxY = 1;
 for (let y = 0; y < height; ++y) {
 	for (let x = 0; x < width; ++x) {
 		const c: Complex = {
-			r: x,
-			i: y,
+			r: minX + ((maxX - minX) * x) / width,
+			i: minY + ((maxY - minY) * y) / height,
 		};
 
 		let z: Complex = {
