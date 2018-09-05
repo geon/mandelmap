@@ -29,14 +29,24 @@ const context = (document.getElementsByTagName(
 	"canvas",
 )[0] as HTMLCanvasElement).getContext("2d")!;
 
+const pixelRatio = window.devicePixelRatio || 1;
+const canvasWidth = context.canvas.width;
+const canvasHeight = context.canvas.height;
+context.canvas.width = canvasWidth * pixelRatio;
+context.canvas.height = canvasHeight * pixelRatio;
+context.canvas.style.width = canvasWidth + "px";
+context.canvas.style.height = canvasHeight + "px";
+
 function drawPixel(x: number, y: number, color: Color) {
 	context.fillStyle =
 		"rgb(" + color.r * 255 + "," + color.g * 255 + "," + color.b * 255 + ")";
 	context.fillRect(x, y, 1, 1);
 }
 
-for (let y = 0; y < context.canvas.clientWidth; ++y) {
-	for (let x = 0; x < context.canvas.clientWidth; ++x) {
+const width = context.canvas.width;
+const height = context.canvas.height;
+for (let y = 0; y < height; ++y) {
+	for (let x = 0; x < width; ++x) {
 		const c: Complex = {
 			r: x,
 			i: y,
