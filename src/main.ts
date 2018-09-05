@@ -14,7 +14,10 @@ function cAdd(a: Complex, b: Complex) {
 }
 
 function cMul(a: Complex, b: Complex) {
-	return { r: a.r * b.r + a.i * b.i, i: a.r * b.i + a.i * b.r };
+	return {
+		r: a.r * b.r - a.i * b.i,
+		i: a.r * b.i + a.i * b.r,
+	};
 }
 
 function cLengthSquared(a: Complex) {
