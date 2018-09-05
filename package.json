@@ -1,0 +1,38 @@
+{
+	"name": "flup",
+	"version": "0.0.1",
+	"description": "Stereotypical puzzle game.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "webpack-dev-server -d",
+		"tsc": "tsc",
+		"lint": "tslint -c tslint.json 'src/**/*.ts' -e 'src/**/*.d.ts' --fix",
+		"build:clean": "rm -rf dist",
+		"build": "npm run build:clean && webpack-cli --mode production --optimize-minimize && cp -r src/graphics dist/ && cp src/index.html dist/",
+		"publish": "npm run build && ./publish.sh"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/geon/flup.git"
+	},
+	"author": "Victor Widell <victor@topmost.se> (http://geon.github.com/)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/geon/flup/issues"
+	},
+	"homepage": "https://github.com/geon/flup",
+	"devDependencies": {
+		"prettier": "^1.9.2",
+		"ts-loader": "^4.4.2",
+		"tslint": "^5.8.0",
+		"typescript": "^3.0.1",
+		"webpack": "^4.16.4",
+		"webpack-cli": "^3.1.0",
+		"webpack-dev-server": "^3.1.5"
+	},
+	"prettier": {
+		"useTabs": true,
+		"trailingComma": "all"
+	}
+}
